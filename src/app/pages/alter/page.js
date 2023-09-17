@@ -10,9 +10,11 @@ function Alter() {
 
     return (
         <body className={styles.alter}>
-        <div className={styles.alterbox}>
-            <button>weug</button>
-        </div>
+        <ul>
+          <li><a href={"/pages/dashboard"}>Home</a></li>
+           <li><a href={"/pages/register"}>Cadastro</a></li>
+           <li><a href={"/pages/alter"}>Alterar</a></li>
+       </ul>
         </body>
         );
     };

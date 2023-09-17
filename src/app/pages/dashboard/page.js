@@ -9,6 +9,12 @@ export default async function Dashboard() {
     const lista = await getUsers()
    
     return (
+      <body>
+        <ul>
+          <li><a href={"/pages/dashboard"}>Home</a></li>
+           <li><a href={"/pages/register"}>Cadastro</a></li>
+           <li><a href={"/pages/alter"}>Alterar</a></li>
+       </ul>
         <div>
             <div  className={styles.dashboard}>
               <Suspense fallback={<p>Carregando...</p>}>
@@ -16,5 +22,6 @@ export default async function Dashboard() {
               </Suspense>
             </div>
         </div>
+        </body>
     );
 };

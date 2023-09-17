@@ -1,5 +1,36 @@
 body{
     background-color: #FFE7F3;
-    font-family: sans-serif;
+    font-family: monospace;
 }
 
+li {
+    list-style: none; 
+    margin-right: 10px;
+    display: inline;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+    background-color: #FF63B1;
+    height: 50px;
+    margin: 0;
+    padding-top: 30px;
+    font-size: 16px;
+
+}
+ 
+li a {
+    padding: 10px 20px; 
+    margin:0;
+    border: 1px solid white; 
+    background:  #FF63B1;
+    text-decoration: none;
+    color:#FFF;
+    border-radius: 5px;
+}
+li a:hover {
+    background: #BBFFF3;
+    color: #FF63B1; 
+    border-color: white;
+}

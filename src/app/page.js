@@ -29,6 +29,11 @@ export default function Login() {
   }
   return (
     <body className={styles.login}>
+      <ul className={styles.ul}>
+           <li className={styles.li}><a className={styles.a} href={"/pages/dashboard"}>Home</a></li>
+           <li className={styles.li}><a className={styles.a} href={"/pages/register"}>Cadastro</a></li>
+           <li className={styles.li}><a className={styles.a} href={"/pages/alter"}>Alterar</a></li>
+       </ul>
       <h1>Login</h1>
       <form onSubmit={handlerLogin}>
         <input className={styles.input}
