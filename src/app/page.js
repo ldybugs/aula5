@@ -28,7 +28,7 @@ export default function Login() {
     }
   }
   return (
-    <div className={styles.login}>
+    <body className={styles.login}>
       <h1>Login</h1>
       <form onSubmit={handlerLogin}>
         <input className={styles.input}
@@ -44,6 +44,6 @@ export default function Login() {
         <button className="botao">Entrar</button>
       </form>
       <ToastContainer/>
-    </div>
+      </body> 
   )
 }

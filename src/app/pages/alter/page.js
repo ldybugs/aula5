@@ -9,9 +9,9 @@ function Alter() {
     const notify =() => toast.success("O usuário foi alterado!");
 
     return (
-        <body>
-            <button></button>
-        </body>
+        <div>
+            <button>weug</button>
+        </div>
         );
     };
     export default Alter
