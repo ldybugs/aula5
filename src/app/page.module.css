@@ -1,3 +1,9 @@
 .login{
     background-color: aqua;
+    text-align: center;
+}
+
+
+.input{
+    width: 300px;
 }

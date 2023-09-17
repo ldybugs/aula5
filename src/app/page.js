@@ -6,6 +6,8 @@ import { ToastContainer,toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
 import styles from './page.module.css'
 
+
+
 export default function Login() {
   const [user, setUser] = useState({
     email: '',
@@ -29,17 +31,17 @@ export default function Login() {
     <div className={styles.login}>
       <h1>Login</h1>
       <form onSubmit={handlerLogin}>
-        <input
+        <input className={styles.input}
           placeholder='E-mail'
           type="email"
           onChange={(e) => { setUser({ ...user, email: e.target.value }) }}>
         </input>
-        <input
+        <input className={styles.input}
           placeholder='Senha'
           type='password'
           onChange={(e) => { setUser({ ...user, password: e.target.value }) }}>
         </input>
-        <button>Entrar</button>
+        <button className="botao">Entrar</button>
       </form>
       <ToastContainer/>
     </div>
