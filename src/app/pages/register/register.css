@@ -100,11 +100,11 @@ li a:hover {
     top: -20px;
     transform: translateY(0);
     transition: transform 200ms;
-    width: 30 px;
+    width: 75px;
   }
   
   .cut-short {
-    width: 50px;
+    width: 75px;
   }
   
   .input:focus ~ .cut,
@@ -137,7 +137,7 @@ li a:hover {
   }
   
   .submit {
-    background-color: #08d;
+    background-color: #e81764;
     border-radius: 12px;
     border: 0;
     box-sizing: border-box;
@@ -152,6 +152,6 @@ li a:hover {
   }
   
   .submit:active {
-    background-color: #06b;
+    background-color: #e81764;
   }
   

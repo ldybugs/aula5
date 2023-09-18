@@ -3,52 +3,58 @@ import { useState } from "react";
 import handlerAcessUser from "./functions/handlerAcess"
 import { useRouter } from "next/navigation";
 import { ToastContainer,toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css'
+import 'react-toastify/dist/ReactToastify.min.css';
 import styles from './page.module.css'
 
 
 
 export default function Login() {
   const [user, setUser] = useState({
-    email: '',
-    password: '',
+    email: '', password: '',
   });
   const { push, refresh } = useRouter();
 
   const handlerLogin = async (e) => {
     e.preventDefault();
     try {
-      const userAuth = await handlerAcessUser(user);
-      if(userAuth.token === undefined){
-        toast.error("E-mail ou senha incorretos");
-      }
+      await handlerAcessUser(user);
       push('/pages/dashboard');
     } catch {
       refresh();
     }
-  }
+
+  const success = true;
+   if (success) {
+      toast.success('Login feito com sucesso!');
+    } else {
+      toast.error('Email ou senha incorretos.');
+    }
+  };
+
   return (
     <body className={styles.login}>
-      <ul className={styles.ul}>
-           <li className={styles.li}><a className={styles.a} href={"/pages/dashboard"}>Home</a></li>
-           <li className={styles.li}><a className={styles.a} href={"/pages/register"}>Cadastro</a></li>
-           <li className={styles.li}><a className={styles.a} href={"/pages/alter"}>Alterar</a></li>
-       </ul>
-      <h1>Login</h1>
-      <form onSubmit={handlerLogin}>
-        <input className={styles.input}
-          placeholder='E-mail'
-          type="email"
-          onChange={(e) => { setUser({ ...user, email: e.target.value }) }}>
-        </input>
-        <input className={styles.input}
-          placeholder='Senha'
-          type='password'
-          onChange={(e) => { setUser({ ...user, password: e.target.value }) }}>
-        </input>
-        <button className="botao">Entrar</button>
-      </form>
-      <ToastContainer/>
-      </body> 
+    <div>
+       <form onSubmit={handlerLogin}>
+       <div className={styles.forrm}>
+       <div className={styles.form} onSubmit={handlerLogin}>
+      <div className={styles.title}>Login</div>
+        
+        <div className={styles.ic1}>
+        <input id="email" className={styles.input} type="email" placeholder=" " onChange={(e) => { setUser({ ...user, email: e.target.value }) }}></input>
+        <div className={styles.cut}></div>
+        <label for="email" className={styles.placeholder}>Email</label>
+      </div>
+      <div className={styles.ic2}>
+        <input id="senha" className={styles.input} type="password" placeholder=" " onChange={(e) => { setUser({ ...user, password: e.target.value }) }}></input>
+        <div className={styles.cut}></div>
+        <label for="senha" className={styles.placeholder}>Senha</label>
+      </div>
+        <button className={styles.submit}>Entrar</button>
+        </div>
+        </div>
+        </form>
+      <ToastContainer />
+      </div>
+      </body>
   )
 }

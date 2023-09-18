@@ -1,12 +1,34 @@
 'use client'
-import { Suspense } from "react";
-import 'react-toastify/dist/ReactToastify.min.css';
-import Link from "next/link";
+import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from "next/navigation";
+import handlerAcessUser from "../../functions/handlerAcess"
+import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import styles from './register.css'
 
-function Register() {
-    const notify =() => toast.success("O usuário foi cadastrado!");
+export default function Register() {
+  const [registro, setRegistro] = useState({
+    name: '', email: '', password: ''
+  });
+
+  const { push, refresh } = useRouter();
+
+  const handlerRegister = async (e) => {
+    e.preventDefault();
+    try {
+      await handlerAcessUser(user);
+      push('/pages/dashboard');
+    } catch {
+      refresh();
+  }
+
+  const success = true;
+   if (success) {
+      toast.success('Usuário cadastrado com sucesso!');
+    } else {
+      toast.error('Ocorreu um erro ao cadastrar o usuário.');
+    }
+  };
     return (
         <body>
         <ul>
@@ -16,30 +38,31 @@ function Register() {
        </ul>
        <br/>
        <br/>
+       <form onSubmit={handlerRegister}>
        <div class="forrm">
        <div class="form">
-      <div class="title">Registrar</div>
+      <div class="title">Cadastrar</div>
     
       <div class="input-container ic1">
-        <input id="firstname" class="input" type="text" placeholder=" " />
+        <input id="nome" class="input" type="text" placeholder=" "  onChange={(e) => { setRegistro({ ...registro, password: e.target.value }) }}/>
         <div class="cut"></div>
-        <label for="firstname" class="placeholder">Nome</label>
+        <label for="nome" class="placeholder">Nome</label>
       </div>
       <div class="input-container ic2">
-        <input id="lastname" class="input" type="text" placeholder=" " />
+        <input id="lemail" class="input" type="email" placeholder=" "  onChange={(e) => { setRegistro({ ...registro, password: e.target.value }) }}/>
         <div class="cut"></div>
-        <label for="lastname" class="placeholder">Email</label>
+        <label for="email" class="placeholder">Email</label>
       </div>
       <div class="input-container ic2">
-        <input id="email" class="input" type="text" placeholder=" " />
+        <input id="email" class="input" type="password" placeholder=" "  onChange={(e) => { setRegistro({ ...registro, password: e.target.value }) }}/>
         <div class="cut cut-short"></div>
         <label for="email" class="placeholder">Senha</label>
       </div>
-      <button class="submit" onClick={notify}>Registrar</button>
+      <button class="submit">Cadastrar</button>
       <ToastContainer />
     </div>
     </div>
+       </form>
         </body>
-        );
+        )
     };
-    export default Register

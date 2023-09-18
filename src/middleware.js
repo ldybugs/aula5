@@ -15,13 +15,25 @@ export const middleware = (request) => {
         }
     }
 
-        if (isTokenValidated) {
+    if (isTokenValidated) {
         if (request.nextUrl.pathname === '/') {
             return NextResponse.redirect(urlDashboard);
+        }
+    }
+
+    if (!isTokenValidated || !token) {
+        if (request.nextUrl.pathname === '/pages/alter') {
+            return NextResponse.redirect(urlLogin);
+        }
+    }
+
+    if (!isTokenValidated || !token) {
+        if (request.nextUrl.pathname === '/pages/register') {
+            return NextResponse.redirect(urlLogin);
         }
     }
     NextResponse.next();
 };
 export const config = {
-    matcher: ['/', '/pages/dashboard']
+    matcher: ['/', '/pages/dashboard', '/pages/register', '/pages/alter']
 };
