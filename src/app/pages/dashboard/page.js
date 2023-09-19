@@ -14,7 +14,7 @@ export default async function Dashboard() {
            <li><a href={"/pages/register"}>Cadastro</a></li>
            <li><a href={"/pages/alter"}>Alterar</a></li>
        </ul>
-        <div className={styles.dashboard}>
+        <div>
             <div>
               <Suspense fallback={<p>Carregando...</p>}>
                 <ListUsers users={lista}/>
