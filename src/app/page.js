@@ -16,22 +16,19 @@ export default function Login() {
 
   const handlerLogin = async (e) => {
     e.preventDefault();
+   
     try {
-      await handlerAcessUser(user);
+      const userAuth = await handlerAcessUser(user);
+      if (userAuth.token ===  undefined){
+        toast.error('Email ou senha incorretos.');
+      }
       push('/pages/dashboard');
     } catch {
-      refresh();
-    }
-
-  const success = true;
-   if (success) {
-      toast.success('Login feito com sucesso!');
-    } else {
-      toast.error('Email ou senha incorretos.');
+      toast.error("Erro na aplicação.")
     }
   };
 
-  return (
+    return (
     <body className={styles.login}>
     <div>
        <form onSubmit={handlerLogin}>

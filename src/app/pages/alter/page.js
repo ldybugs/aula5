@@ -51,12 +51,12 @@ export default function Alter() {
         <label for="firstname" class="placeholder">Nome</label>
       </div>
       <div class="input-container ic2">
-        <input id="lastname" class="input" type="text" placeholder=" " onChange={(e) => { setAlter({ ...alter, email: e.target.value }) }}/>
+        <input id="lastname" class="input" type="email" placeholder=" " onChange={(e) => { setAlter({ ...alter, email: e.target.value }) }}/>
         <div class="cut"></div>
         <label for="lastname" class="placeholder">Email</label>
       </div>
       <div class="input-container ic2">
-        <input id="email" class="input" type="text" placeholder=" " onChange={(e) => { setAlter({ ...alter, password: e.target.value }) }}/>
+        <input id="email" class="input" type="password" placeholder=" " onChange={(e) => { setAlter({ ...alter, password: e.target.value }) }}/>
         <div class="cut cut-short"></div>
         <label for="email" class="placeholder">Senha</label>
       </div>
