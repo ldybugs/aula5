@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.min.css';
 import styles from './dashboard.css'
 
 export default async function Dashboard() {
-    const lista = getUsers();
+    const lista = await getUsers();
    
     return (
       <body>  

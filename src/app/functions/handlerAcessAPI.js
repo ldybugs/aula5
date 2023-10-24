@@ -11,10 +11,21 @@ const getUserAuthenticated = async (user) => {
     }
     );
     const userAuth = await responseOfApi.json();
+    console.log(userAuth);
     return userAuth;
 }
 
-const getUsers = () =>{
+const getUsers = async () =>{
+    try{
+        const responseOfApi = await fetch(url + "/users",{
+            next: { revalidate: 10}
+        });
+        const listUsers = responseOfApi.json();
+
+        return listUsers;
+    } catch{
+        return null;
+    }
 
     }
      
